@@ -11,6 +11,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -89,7 +90,7 @@ fun NoteItem(
             modifier = Modifier.align(Alignment.TopEnd),
             content = {
                 Icon(
-                    imageVector = Icons.Outlined.StarBorder,
+                    imageVector = Icons.Outlined.Delete,
                     contentDescription = "Delete note",
                     tint = MaterialTheme.colors.onSurface
                 )

@@ -2,11 +2,10 @@ package com.onepercent.xnotes.feature_note.data.datasource
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.onepercent.xnotes.feature_note.domain.model.Note
 
 @Database(
     entities = [
-        Note::class
+        NoteEntity::class
     ],
     version = 1
 )

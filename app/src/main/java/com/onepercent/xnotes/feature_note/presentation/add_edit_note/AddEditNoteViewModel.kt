@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.onepercent.xnotes.feature_note.data.datasource.NoteEntity
 import com.onepercent.xnotes.feature_note.domain.model.InvalidNoteException
 import com.onepercent.xnotes.feature_note.domain.model.Note
 import com.onepercent.xnotes.feature_note.domain.use_case.NoteUseCases
@@ -89,11 +90,11 @@ class AddEditNoteViewModel @Inject constructor(
                     try {
                         noteUseCases.addNote(
                             Note(
+                                id = currentNoteId ?: 0,
                                 title = noteTitle.value.text,
                                 content = noteContent.value.text,
                                 timestamp = System.currentTimeMillis(),
-                                color = noteColor.value,
-                                id = currentNoteId
+                                color = noteColor.value
                             )
                         )
                         _eventFlow.emit(UiEvent.SaveNote)
