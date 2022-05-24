@@ -2,7 +2,7 @@ package com.onepercent.xnotes.di
 
 import android.app.Application
 import androidx.room.Room
-import com.onepercent.xnotes.feature_note.data.datasource.NoteDatabase
+import com.onepercent.xnotes.core.database.NoteDatabase
 import com.onepercent.xnotes.feature_note.data.repository.NoteRepositoryImpl
 import com.onepercent.xnotes.feature_note.domain.repository.NoteRepository
 import com.onepercent.xnotes.feature_note.domain.use_case.*

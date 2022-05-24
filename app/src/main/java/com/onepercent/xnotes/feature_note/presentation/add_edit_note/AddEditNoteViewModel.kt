@@ -6,7 +6,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.onepercent.xnotes.feature_note.data.datasource.NoteEntity
 import com.onepercent.xnotes.feature_note.domain.model.InvalidNoteException
 import com.onepercent.xnotes.feature_note.domain.model.Note
 import com.onepercent.xnotes.feature_note.domain.use_case.NoteUseCases

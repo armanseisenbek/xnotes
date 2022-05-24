@@ -1,7 +1,9 @@
-package com.onepercent.xnotes.feature_note.data.datasource
+package com.onepercent.xnotes.core.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.onepercent.xnotes.core.database.dao.NoteDao
+import com.onepercent.xnotes.core.database.model.NoteEntity
 
 @Database(
     entities = [

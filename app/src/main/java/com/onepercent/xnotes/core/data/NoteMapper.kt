@@ -1,5 +1,6 @@
-package com.onepercent.xnotes.feature_note.data.datasource
+package com.onepercent.xnotes.core.data
 
+import com.onepercent.xnotes.core.database.model.NoteEntity
 import com.onepercent.xnotes.feature_note.domain.model.Note
 
 fun Note.mapToEntity() : NoteEntity {

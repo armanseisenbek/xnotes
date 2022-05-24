@@ -1,6 +1,7 @@
-package com.onepercent.xnotes.feature_note.data.datasource
+package com.onepercent.xnotes.core.database.dao
 
 import androidx.room.*
+import com.onepercent.xnotes.core.database.model.NoteEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

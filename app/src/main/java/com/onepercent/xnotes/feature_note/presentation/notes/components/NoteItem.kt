@@ -47,20 +47,6 @@ fun NoteItem(
                 onNoteClick()
             }
     ) {
-        Canvas(
-            modifier = Modifier.matchParentSize(),
-            onDraw = {
-                    drawRoundRect(
-                        color = Color(
-                            ColorUtils.blendARGB(note.color, 0x0000000, 0.2f)
-                        ),
-                        topLeft = Offset(size.width - cutCornerSize.toPx(), size.height-cutCornerSize.toPx()),
-                        size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f),
-                        cornerRadius = CornerRadius(cornerRadius.toPx())
-                    )
-            }
-        )
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -93,6 +79,20 @@ fun NoteItem(
                     imageVector = Icons.Outlined.Delete,
                     contentDescription = "Delete note",
                     tint = MaterialTheme.colors.onSurface
+                )
+            }
+        )
+
+        Canvas(
+            modifier = Modifier.matchParentSize(),
+            onDraw = {
+                drawRoundRect(
+                    color = Color(
+                        ColorUtils.blendARGB(note.color, 0x0000000, 0.2f)
+                    ),
+                    topLeft = Offset(size.width - cutCornerSize.toPx(), size.height-cutCornerSize.toPx()),
+                    size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f),
+                    cornerRadius = CornerRadius(cornerRadius.toPx())
                 )
             }
         )
