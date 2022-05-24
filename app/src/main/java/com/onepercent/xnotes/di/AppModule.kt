@@ -1,8 +1,6 @@
 package com.onepercent.xnotes.di
 
-import android.app.Application
-import androidx.room.Room
-import com.onepercent.xnotes.core.database.NoteDatabase
+import com.onepercent.core.database.XnotesDatabase
 import com.onepercent.xnotes.core.data.repository.NoteRepositoryImpl
 import com.onepercent.xnotes.core.data.repository.NoteRepository
 import com.onepercent.xnotes.feature_note.domain.use_case.*
@@ -18,19 +16,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteDatabase(app: Application): NoteDatabase {
-        return Room
-            .databaseBuilder(
-                app,
-                NoteDatabase::class.java,
-                NoteDatabase.DATABASE_NAME
-            )
-            .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideNoteRepository(db: NoteDatabase): NoteRepository {
+    fun provideNoteRepository(db: XnotesDatabase): NoteRepository {
         return NoteRepositoryImpl(db.noteDao)
     }
 

@@ -1,7 +1,7 @@
 package com.onepercent.xnotes.core.data.repository
 
+import com.onepercent.core.database.dao.NoteDao
 import com.onepercent.core.model.Note
-import com.onepercent.xnotes.core.database.dao.NoteDao
 import com.onepercent.xnotes.core.data.mapFromEntity
 import com.onepercent.xnotes.core.data.mapToEntity
 import kotlinx.coroutines.flow.Flow
