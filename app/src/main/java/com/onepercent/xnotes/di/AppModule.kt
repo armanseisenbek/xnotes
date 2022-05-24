@@ -3,8 +3,8 @@ package com.onepercent.xnotes.di
 import android.app.Application
 import androidx.room.Room
 import com.onepercent.xnotes.core.database.NoteDatabase
-import com.onepercent.xnotes.feature_note.data.repository.NoteRepositoryImpl
-import com.onepercent.xnotes.feature_note.domain.repository.NoteRepository
+import com.onepercent.xnotes.core.data.repository.NoteRepositoryImpl
+import com.onepercent.xnotes.core.data.repository.NoteRepository
 import com.onepercent.xnotes.feature_note.domain.use_case.*
 import dagger.Module
 import dagger.Provides

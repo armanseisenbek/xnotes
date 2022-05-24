@@ -1,8 +1,8 @@
 package com.onepercent.xnotes.feature_note.domain.use_case
 
-import com.onepercent.xnotes.feature_note.domain.model.InvalidNoteException
-import com.onepercent.xnotes.feature_note.domain.model.Note
-import com.onepercent.xnotes.feature_note.domain.repository.NoteRepository
+import com.onepercent.core.model.Note
+import com.onepercent.xnotes.core.model.InvalidNoteException
+import com.onepercent.xnotes.core.data.repository.NoteRepository
 
 class AddNote(
     private val repository: NoteRepository

@@ -1,6 +1,6 @@
-package com.onepercent.xnotes.feature_note.domain.repository
+package com.onepercent.xnotes.core.data.repository
 
-import com.onepercent.xnotes.feature_note.domain.model.Note
+import com.onepercent.core.model.Note
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {

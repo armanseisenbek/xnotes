@@ -1,7 +1,7 @@
 package com.onepercent.xnotes.feature_note.domain.use_case
 
-import com.onepercent.xnotes.feature_note.domain.model.Note
-import com.onepercent.xnotes.feature_note.domain.repository.NoteRepository
+import com.onepercent.core.model.Note
+import com.onepercent.xnotes.core.data.repository.NoteRepository
 import com.onepercent.xnotes.feature_note.domain.util.NoteOrder
 import com.onepercent.xnotes.feature_note.domain.util.OrderType
 import kotlinx.coroutines.flow.Flow
