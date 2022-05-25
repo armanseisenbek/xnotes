@@ -1,3 +1,3 @@
-package com.onepercent.xnotes.core.model
+package com.onepercent.xnotes
 
 class InvalidNoteException(message: String): Exception(message)

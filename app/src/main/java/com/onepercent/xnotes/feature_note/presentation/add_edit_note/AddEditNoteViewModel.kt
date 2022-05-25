@@ -6,20 +6,21 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.onepercent.xnotes.core.model.InvalidNoteException
+
+import com.onepercent.core.domain.note_interactors.NoteInteractors
+import com.onepercent.xnotes.InvalidNoteException
 import com.onepercent.core.model.Note
-import com.onepercent.xnotes.feature_note.domain.use_case.NoteUseCases
 import com.onepercent.xnotes.ui.theme.noteColors
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 @HiltViewModel
 class AddEditNoteViewModel @Inject constructor(
-    private val noteUseCases: NoteUseCases,
+    private val noteInteractors: NoteInteractors,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -40,20 +41,20 @@ class AddEditNoteViewModel @Inject constructor(
     init {
         savedStateHandle.get<Int>("noteId")?.let { noteId ->
             if(noteId != -1) {
-                viewModelScope.launch {
-                    noteUseCases.getNote(noteId)?.also { note ->
-                        currentNoteId = note.id
-                        _noteTitle.value = noteTitle.value.copy(
-                            text = note.title,
-                            isHintVisible = false
-                        )
-                        _noteContent.value = _noteContent.value.copy(
-                            text = note.content,
-                            isHintVisible = false
-                        )
-                        _noteColor.value = note.color
-                    }
-                }
+//                viewModelScope.launch {
+//                    noteInteractors.getNote.execute(noteId).also { note ->
+//                        currentNoteId = note.id
+//                        _noteTitle.value = noteTitle.value.copy(
+//                            text = note.title,
+//                            isHintVisible = false
+//                        )
+//                        _noteContent.value = _noteContent.value.copy(
+//                            text = note.content,
+//                            isHintVisible = false
+//                        )
+//                        _noteColor.value = note.color
+//                    }
+//                }
             }
         }
     }
@@ -88,7 +89,7 @@ class AddEditNoteViewModel @Inject constructor(
             is AddEditNoteEvent.SaveNote -> {
                 viewModelScope.launch {
                     try {
-                        noteUseCases.addNote(
+                        noteInteractors.addNote.execute(
                             Note(
                                 id = currentNoteId ?: 0,
                                 title = noteTitle.value.text,
@@ -97,6 +98,7 @@ class AddEditNoteViewModel @Inject constructor(
                                 color = noteColor.value
                             )
                         )
+
                         _eventFlow.emit(UiEvent.SaveNote)
                     } catch(e: InvalidNoteException) {
                         _eventFlow.emit(

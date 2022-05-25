@@ -1,4 +1,4 @@
-package com.onepercent.xnotes.feature_note.domain.util
+package com.onepercent.core.domain.util
 
 sealed class OrderType {
 

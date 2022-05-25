@@ -14,7 +14,7 @@ import com.onepercent.core.database.model.NoteEntity
 )
 abstract class XnotesDatabase : RoomDatabase() {
 
-    abstract val noteDao: NoteDao
+    abstract fun noteDao(): NoteDao
 
     companion object {
         const val DATABASE_NAME = "xnotes_db"

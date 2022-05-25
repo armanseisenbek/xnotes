@@ -1,4 +1,4 @@
-package com.onepercent.xnotes.core.data
+package com.onepercent.xnotes
 
 import com.onepercent.core.database.model.NoteEntity
 import com.onepercent.core.model.Note

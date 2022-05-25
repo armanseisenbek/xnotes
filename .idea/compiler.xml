@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="xnotes.app" target="11" />
       <module name="xnotes.core-database" target="11" />
+      <module name="xnotes.core-datasource" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

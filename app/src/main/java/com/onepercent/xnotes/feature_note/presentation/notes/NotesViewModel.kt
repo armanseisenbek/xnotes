@@ -4,10 +4,12 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+
+import com.onepercent.core.domain.note_interactors.NoteInteractors
+import com.onepercent.core.domain.util.NoteOrder
+import com.onepercent.core.domain.util.OrderType
 import com.onepercent.core.model.Note
-import com.onepercent.xnotes.feature_note.domain.use_case.NoteUseCases
-import com.onepercent.xnotes.feature_note.domain.util.NoteOrder
-import com.onepercent.xnotes.feature_note.domain.util.OrderType
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
@@ -19,7 +21,7 @@ import javax.inject.Inject
 class NotesViewModel
 @Inject
 constructor(
-    private val noteUseCases: NoteUseCases
+    private val noteInteractors: NoteInteractors
 ) : ViewModel() {
 
     private val _state = mutableStateOf(NotesState())
@@ -45,13 +47,13 @@ constructor(
             }
             is NotesEvent.DeleteNote -> {
                 viewModelScope.launch {
-                    noteUseCases.deleteNote(event.note)
+                    noteInteractors.deleteNote.execute(event.note)
                     recentlyDeletedNote = event.note
                 }
             }
             is NotesEvent.RestoreNote -> {
                 viewModelScope.launch {
-                    noteUseCases.addNote(recentlyDeletedNote ?: return@launch)
+                    noteInteractors.addNote.execute(recentlyDeletedNote ?: return@launch)
                     recentlyDeletedNote = null
                 }
             }
@@ -67,13 +69,14 @@ constructor(
 
         getNotesJob?.cancel()
 
-        getNotesJob = noteUseCases.getNotes(noteOrder)
-            .onEach { notes ->
-                _state.value = state.value.copy(
-                    notes = notes,
-                    noteOrder = noteOrder
-                )
-            }
-            .launchIn(viewModelScope)
+//        getNotesJob = noteInteractors.getNotes.execute(noteOrder)
+//            .onEach { dataState ->
+//                _state.value = state.value.copy(
+//                    notes = dataState,
+//                    noteOrder = noteOrder
+//                )
+//            }
+//            .launchIn(viewModelScope)
+            
     }
 }

@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-import com.onepercent.xnotes.feature_note.domain.util.NoteOrder
-import com.onepercent.xnotes.feature_note.domain.util.OrderType
+import com.onepercent.core.domain.util.NoteOrder
+import com.onepercent.core.domain.util.OrderType
 
 @Composable
 fun OrderSection(
