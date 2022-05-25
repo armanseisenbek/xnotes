@@ -1,11 +1,10 @@
-package com.onepercent.xnotes.core.data.repository
+package com.onepercent.core.data
 
 import com.onepercent.core.model.Note
-import kotlinx.coroutines.flow.Flow
 
-interface NoteRepository {
+interface NoteCacheDataSource {
 
-    fun getNotes(): Flow<List<Note>>
+    fun getNotes(): List<Note>
 
     suspend fun getNoteById(id: Int): Note?
 

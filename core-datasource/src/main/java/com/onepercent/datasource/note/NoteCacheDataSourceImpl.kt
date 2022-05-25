@@ -1,21 +1,18 @@
-package com.onepercent.xnotes.core.data.repository
+package com.onepercent.datasource.note
 
+import com.onepercent.core.data.NoteCacheDataSource
 import com.onepercent.core.database.dao.NoteDao
 import com.onepercent.core.model.Note
-import com.onepercent.xnotes.core.data.mapFromEntity
-import com.onepercent.xnotes.core.data.mapToEntity
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import com.onepercent.datasource.mapper.mapFromEntity
+import com.onepercent.datasource.mapper.mapToEntity
 
-class NoteRepositoryImpl(
+class NoteCacheDataSourceImpl(
     private val noteDao: NoteDao
-) : NoteRepository {
+) : NoteCacheDataSource {
 
-    override fun getNotes(): Flow<List<Note>> {
-        return noteDao.getNotes().map {
-            it.map { noteEntity ->
+    override fun getNotes(): List<Note> {
+        return noteDao.getNotes().map { noteEntity ->
                 noteEntity.mapFromEntity()
-            }
         }
     }
 
@@ -30,4 +27,5 @@ class NoteRepositoryImpl(
     override suspend fun deleteNote(note: Note) {
         noteDao.deleteNote(note.mapToEntity())
     }
+
 }
