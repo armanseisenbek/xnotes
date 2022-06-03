@@ -1,18 +1,18 @@
-package com.onepercent.datasource.note
+package com.onepercent.core.data
 
-import com.onepercent.core.data.NoteCacheDataSource
+import com.onepercent.core.data.mappers.mapFromEntity
+import com.onepercent.core.data.mappers.mapToEntity
 import com.onepercent.core.database.dao.NoteDao
+import com.onepercent.core.domain.datasource.NoteCacheDataSource
 import com.onepercent.core.model.Note
-import com.onepercent.datasource.mapper.mapFromEntity
-import com.onepercent.datasource.mapper.mapToEntity
 
 class NoteCacheDataSourceImpl(
     private val noteDao: NoteDao
 ) : NoteCacheDataSource {
 
-    override fun getNotes(): List<Note> {
+    override suspend fun getNotes(): List<Note> {
         return noteDao.getNotes().map { noteEntity ->
-                noteEntity.mapFromEntity()
+            noteEntity.mapFromEntity()
         }
     }
 
@@ -27,5 +27,4 @@ class NoteCacheDataSourceImpl(
     override suspend fun deleteNote(note: Note) {
         noteDao.deleteNote(note.mapToEntity())
     }
-
 }

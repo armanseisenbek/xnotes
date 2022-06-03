@@ -1,8 +1,9 @@
-package com.onepercent.datasource.di
+package com.onepercent.core.data.di
 
-import com.onepercent.core.data.NoteCacheDataSource
+import com.onepercent.core.data.NoteCacheDataSourceImpl
 import com.onepercent.core.database.dao.NoteDao
-import com.onepercent.datasource.note.NoteCacheDataSourceImpl
+import com.onepercent.core.domain.datasource.NoteCacheDataSource
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataSourceModule {
+object DataModule {
 
     @Provides
     @Singleton

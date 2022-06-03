@@ -1,10 +1,9 @@
 apply {
-    from("$rootDir/library-build.gradle")
+    from("$rootDir/android-library-build.gradle")
 }
 
 dependencies {
     "implementation"(project(":core-model"))
-
-    // Coroutines
-    "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+    "implementation"(project(":core-domain"))
+    "implementation"(project(":core-database"))
 }
