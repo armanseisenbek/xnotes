@@ -1,6 +1,6 @@
 package com.onepercent.core.domain.note_interactors
 
-import com.onepercent.core.data.NoteCacheDataSource
+import com.onepercent.core.domain.datasource.NoteCacheDataSource
 
 data class NoteInteractors(
     val getNote: GetNote,

@@ -51,11 +51,13 @@ android {
 dependencies {
 
     implementation(project(":core-common"))
+    implementation(project(":core-constants"))
     implementation(project(":core-model"))
     implementation(project(":core-database"))
-    implementation(project(":core-domain"))
     implementation(project(":core-data"))
-    implementation(project(":core-datasource"))
+    implementation(project(":core-domain"))
+    implementation(project(":core-ui"))
+    implementation(project(":feature-notes"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -85,14 +87,6 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:2.37"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
-
-    // Room
-    implementation "androidx.room:room-runtime:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
-
-    // Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:2.4.2"
-
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

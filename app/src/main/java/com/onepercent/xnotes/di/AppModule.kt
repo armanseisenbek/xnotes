@@ -1,6 +1,6 @@
 package com.onepercent.xnotes.di
 
-import com.onepercent.core.data.NoteCacheDataSource
+import com.onepercent.core.domain.datasource.NoteCacheDataSource
 import com.onepercent.core.domain.note_interactors.NoteInteractors
 
 import dagger.Module

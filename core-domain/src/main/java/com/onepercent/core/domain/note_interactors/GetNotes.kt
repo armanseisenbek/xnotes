@@ -1,12 +1,12 @@
 package com.onepercent.core.domain.note_interactors
 
-import com.onepercent.core.data.NoteCacheDataSource
-import com.onepercent.core.domain.DataState
-import com.onepercent.core.domain.ProgressBarState
-import com.onepercent.core.domain.UIComponent
-import com.onepercent.core.domain.util.NoteOrder
-import com.onepercent.core.domain.util.OrderType
+import com.onepercent.core.common.DataState
+import com.onepercent.core.common.ProgressBarState
+import com.onepercent.core.common.UIComponent
 import com.onepercent.core.model.Note
+import com.onepercent.core.common.util.NoteOrder
+import com.onepercent.core.common.util.OrderType
+import com.onepercent.core.domain.datasource.NoteCacheDataSource
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -40,6 +40,8 @@ class GetNotes(
                     }
                 }
             }
+
+            println("NOTES = $notes")
 
             emit(DataState.Data(notes))
 
