@@ -1,4 +1,4 @@
-package com.onepercent.core.model
+package com.onepercent.core.domain.model
 
 data class Note(
     val id: Int,

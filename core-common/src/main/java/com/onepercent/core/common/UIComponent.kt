@@ -6,7 +6,7 @@ sealed class UIComponent {
 
     data class None(val message: String): UIComponent()
 
-    data class Snackbar(val message: String): UIComponent()
+    data class SnackBar(val message: String): UIComponent()
 
     data class Toast(val message: String): UIComponent()
 

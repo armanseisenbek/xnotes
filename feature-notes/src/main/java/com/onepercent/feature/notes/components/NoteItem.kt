@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 
 @Composable
 fun NoteItem(
@@ -36,7 +36,6 @@ fun NoteItem(
     onNoteClick: () -> Unit,
     onDeleteClick: () -> Unit
 ) {
-
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -70,7 +69,6 @@ fun NoteItem(
                 )
             }
         )
-
         IconButton(
             onClick = onDeleteClick,
             modifier = Modifier.align(Alignment.TopEnd),
@@ -82,7 +80,6 @@ fun NoteItem(
                 )
             }
         )
-
         // background
         Canvas(
             modifier = Modifier.matchParentSize(),

@@ -1,7 +1,7 @@
 package com.onepercent.core.data.mappers
 
 import com.onepercent.core.database.model.NoteEntity
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 
 fun Note.mapToEntity() : NoteEntity {
     return NoteEntity(

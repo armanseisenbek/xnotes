@@ -32,13 +32,13 @@ import com.onepercent.feature.notes.navigation.NotesNavItem
 //import kotlinx.coroutines.launch
 
 
-//@Composable
-//fun AddEditNoteScreen(
+@Composable
+fun AddEditNoteScreen(
 //    state: AddEditNoteState,
-//    events: (AddEditNoteEvent) -> Unit
-//) {
-//
-//}
+    onEvent: (AddEditNoteEvent) -> Unit
+) {
+
+}
 
 
 //@Composable

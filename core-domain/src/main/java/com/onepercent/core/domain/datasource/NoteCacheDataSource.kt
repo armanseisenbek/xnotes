@@ -1,6 +1,6 @@
 package com.onepercent.core.domain.datasource
 
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 
 interface NoteCacheDataSource {
 

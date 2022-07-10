@@ -17,7 +17,6 @@ fun NavGraphBuilder.notesNavGraph(
         route = NOTES_GRAPH_ROUTE,
         startDestination = NotesNavItem.NotesScreen.route,
         builder = {
-
             composable(
                 route = NotesNavItem.NotesScreen.route,
                 content = {
@@ -30,6 +29,12 @@ fun NavGraphBuilder.notesNavGraph(
 
                         }
                     )
+                }
+            )
+            composable(
+                route = NotesNavItem.AddEditNoteScreen.route,
+                content = {
+
                 }
             )
         }

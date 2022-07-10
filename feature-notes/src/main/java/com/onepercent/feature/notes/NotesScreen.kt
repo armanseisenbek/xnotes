@@ -17,6 +17,7 @@ import androidx.navigation.NavController
 import com.onepercent.feature.notes.components.AddNoteFloatingButton
 import com.onepercent.feature.notes.components.NoteItem
 import com.onepercent.feature.notes.components.OrderSection
+import com.onepercent.feature.notes.navigation.NotesNavItem
 import kotlinx.coroutines.launch
 
 @Composable
@@ -25,11 +26,10 @@ fun NotesScreen(
     event: (NotesEvent) -> Unit,
     navigateToAddEditNote: (String) -> Unit,
 ) {
-
     Scaffold(
         floatingActionButton = {
             AddNoteFloatingButton {
-
+                navigateToAddEditNote(NotesNavItem.AddEditNoteScreen.route)
             }
         },
         content = {

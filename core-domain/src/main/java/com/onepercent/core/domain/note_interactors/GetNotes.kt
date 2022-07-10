@@ -3,7 +3,7 @@ package com.onepercent.core.domain.note_interactors
 import com.onepercent.core.common.DataState
 import com.onepercent.core.common.ProgressBarState
 import com.onepercent.core.common.UIComponent
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 import com.onepercent.core.common.util.NoteOrder
 import com.onepercent.core.common.util.OrderType
 import com.onepercent.core.domain.datasource.NoteCacheDataSource

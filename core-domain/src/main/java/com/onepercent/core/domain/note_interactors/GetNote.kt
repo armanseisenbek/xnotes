@@ -4,7 +4,7 @@ import com.onepercent.core.common.DataState
 import com.onepercent.core.common.ProgressBarState
 import com.onepercent.core.common.UIComponent
 import com.onepercent.core.domain.datasource.NoteCacheDataSource
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

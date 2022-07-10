@@ -1,6 +1,6 @@
 package com.onepercent.feature.notes
 
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 import com.onepercent.core.common.util.NoteOrder
 import com.onepercent.core.common.util.OrderType
 

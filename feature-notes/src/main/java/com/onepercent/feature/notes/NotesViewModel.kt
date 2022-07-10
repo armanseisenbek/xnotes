@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.onepercent.core.common.DataState
 import com.onepercent.core.domain.note_interactors.NoteInteractors
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 import com.onepercent.core.common.util.NoteOrder
 import com.onepercent.core.common.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel

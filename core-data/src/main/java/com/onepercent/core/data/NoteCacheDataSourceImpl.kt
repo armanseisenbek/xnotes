@@ -4,7 +4,7 @@ import com.onepercent.core.data.mappers.mapFromEntity
 import com.onepercent.core.data.mappers.mapToEntity
 import com.onepercent.core.database.dao.NoteDao
 import com.onepercent.core.domain.datasource.NoteCacheDataSource
-import com.onepercent.core.model.Note
+import com.onepercent.core.domain.model.Note
 
 class NoteCacheDataSourceImpl(
     private val noteDao: NoteDao
