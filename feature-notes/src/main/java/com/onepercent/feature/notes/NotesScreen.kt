@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.onepercent.feature.notes.components.AddNoteFloatingButton
 import com.onepercent.feature.notes.components.NoteItem
+import com.onepercent.feature.notes.components.NotesTopAppBar
 import com.onepercent.feature.notes.components.OrderSection
 import com.onepercent.feature.notes.navigation.NotesNavItem
 import kotlinx.coroutines.launch
@@ -31,6 +32,9 @@ fun NotesScreen(
             AddNoteFloatingButton {
                 navigateToAddEditNote(NotesNavItem.AddEditNoteScreen.route)
             }
+        },
+        topBar = {
+            NotesTopAppBar()
         },
         content = {
             Column(

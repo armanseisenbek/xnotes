@@ -1,7 +1,33 @@
 package com.onepercent.feature.notes.add_edit_note
 
+import androidx.compose.animation.Animatable
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.TextField
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.onepercent.core.ui.theme.noteColors
+import com.onepercent.feature.notes.add_edit_note.components.AddEditNoteTopAppBar
 import com.onepercent.feature.notes.navigation.NotesNavItem
+import kotlinx.coroutines.launch
 
 //import androidx.compose.animation.Animatable
 //import androidx.compose.animation.core.tween
@@ -35,9 +61,97 @@ import com.onepercent.feature.notes.navigation.NotesNavItem
 @Composable
 fun AddEditNoteScreen(
 //    state: AddEditNoteState,
-    onEvent: (AddEditNoteEvent) -> Unit
+    viewModel: AddEditNoteViewModel = hiltViewModel(),
+    noteColor: Int,
+    onEvent: (AddEditNoteEvent) -> Unit = viewModel::onEvent
 ) {
+    val noteBackgroundAnimatable = remember {
+        Animatable(
+            Color(if (noteColor != -1) noteColor else viewModel.noteColor.value)
+        )
+    }
 
+    val scope = rememberCoroutineScope()
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column {
+            AddEditNoteTopAppBar {
+            }
+            Spacer(modifier = Modifier.height(25.dp))
+            Column(modifier = Modifier.padding(horizontal = 15.dp)) {
+                TextField(
+                    modifier = Modifier.fillMaxWidth(),
+                    value = viewModel.noteTitle.value.text,
+                    onValueChange = {
+                        onEvent(AddEditNoteEvent.EnteredTitle(it))
+                    }
+                )
+                Spacer(modifier = Modifier.height(25.dp))
+                TextField(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(250.dp),
+                    value = viewModel.noteContent.value.text,
+                    onValueChange = {
+                        onEvent(AddEditNoteEvent.EnteredContent(it))
+                    }
+                )
+            }
+        }
+
+//        Column(
+//            modifier = Modifier.background(noteBackgroundAnimatable.value)
+//        ) {
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(8.dp),
+//                horizontalArrangement = Arrangement.SpaceBetween,
+//                content = {
+//                    noteColors.forEach { color ->
+//                        val colorInt = color.toArgb()
+//                        Box(
+//                            modifier = Modifier
+//                                .size(50.dp)
+//                                .shadow(15.dp, CircleShape)
+//                                .clip(CircleShape)
+//                                .background(color)
+//                                .border(
+//                                    width = 3.dp,
+//                                    color = if (viewModel.noteColor.value == colorInt) {
+//                                        Color.Black
+//                                    } else Color.Transparent,
+//                                    shape = CircleShape
+//                                )
+//                                .clickable {
+//                                    scope.launch {
+//                                        noteBackgroundAnimatable.animateTo(
+//                                            targetValue = Color(colorInt),
+//                                            animationSpec = tween(
+//                                                durationMillis = 500
+//                                            )
+//                                        )
+//                                    }
+//                                    onEvent(AddEditNoteEvent.ChangeColor(colorInt))
+//                                }
+//                        )
+//                    }
+//                }
+//            )
+//            TextField(
+//                value = viewModel.noteTitle.value.text,
+//                onValueChange = {
+//                    onEvent(AddEditNoteEvent.EnteredTitle(it))
+//                }
+//            )
+//            TextField(
+//                value = viewModel.noteContent.value.text,
+//                onValueChange = {
+//                    onEvent(AddEditNoteEvent.EnteredContent(it))
+//                }
+//            )
+//        }
+    }
 }
 
 
